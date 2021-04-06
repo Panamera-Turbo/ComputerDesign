@@ -10,7 +10,7 @@
                 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                     <el-form-item label="用户名" prop="username">
                         <!-- <el-input type="string" v-model="ruleForm.username"></el-input> -->
-                        <el-input placeholder="请输入您的用户名" type="string" v-model.number="ruleForm.username" autocomplete="off"></el-input>
+                        <el-input placeholder="请输入您的用户名" type="string" v-model="ruleForm.username" autocomplete="off"></el-input>
                     </el-form-item>
 
 
@@ -38,18 +38,16 @@ export default {
     data() {
         var checkUsername = (rule, value, callback) => {
             if (value === '') {
+                // console.log("lll")
                 return callback(new Error('用户名不能为空'));
+            } else {
+                return callback();
             }
-            setTimeout(() => {
-                if (!String.isString(value)) {
-                    callback(new Error('请输入字符串'));
-                } else {
-                    callback()
-                }
-            }, 1000);
         };
         var validatePass = (rule, value, callback) => {
+            // console.log(23, value)
             if (value === '') {
+                console.log("我在这里")
                 callback(new Error('请输入密码'));
             } else {
                 if (this.ruleForm.checkPass !== '') {
@@ -69,7 +67,7 @@ export default {
         };
         return {
             ruleForm: {
-                ass: '',
+                pass: '',
                 checkPass: '',
                 username: ''
             },
@@ -87,19 +85,20 @@ export default {
         };
     },
     methods: {
-        submitForm(formName) {
-            this.$refs[formName].validate((valid) => {
+            submitForm(formName) {
+                this.$refs[formName].validate((valid) => {
+                    console.log(23, 'dd')
                 if (valid) {
                     alert('submit!');
                 } else {
                     console.log('error submit!!');
                     return false;
                 }
-            });
-        },
-        resetForm(formName) {
-            this.$refs[formName].resetFields();
-        }
+                });
+            },
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            }
         }
     }
 </script>
