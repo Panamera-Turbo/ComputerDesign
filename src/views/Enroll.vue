@@ -23,8 +23,8 @@
                         <el-input placeholder="请再次输入您的密码" type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
                     </el-form-item>
                     
-                    <el-form-item>
-                        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+                    <el-form-item id="form-end">
+                        <el-button type="primary" @click="submitForm('ruleForm')" v-loading.fullscreen.lock="fullscreenLoading">注册</el-button>
                         <el-button @click="resetForm('ruleForm')">重置</el-button>
                     </el-form-item>
                 </el-form>
@@ -38,14 +38,12 @@ export default {
     data() {
         var checkUsername = (rule, value, callback) => {
             if (value === '') {
-                // console.log("lll")
                 return callback(new Error('用户名不能为空'));
             } else {
                 return callback();
             }
         };
         var validatePass = (rule, value, callback) => {
-            // console.log(23, value)
             if (value === '') {
                 console.log("我在这里")
                 callback(new Error('请输入密码'));
@@ -81,17 +79,28 @@ export default {
                 username: [
                     { validator: checkUsername, trigger: 'blur' }
                 ]
-            }
+            },
+            //和页面加载相关的组件数据
+            fullscreenLoading: false,
         };
     },
     methods: {
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
-                    console.log(23, 'dd')
+                
+
                 if (valid) {
-                    alert('submit!');
+                    this.$message.success({message: `用户: ${this.ruleForm.username}，注册成功！请登陆网站！`})
+
+                    // 这里以后做的是ajax处理，这里先用setTimeout来表示加载过程,添加了加载功能
+                    this.fullscreenLoading = true;
+                    setTimeout(() => {
+                        this.fullscreenLoading = false;
+                    }, 2000);
+
+                    this.$router.push("./")
                 } else {
-                    console.log('error submit!!');
+                    this.$message.error({message: `注册失败，请重新进行注册。`})
                     return false;
                 }
                 });
@@ -123,4 +132,5 @@ export default {
         justify-content:center;
         /* text-align: center; */
     }
+
 </style>
