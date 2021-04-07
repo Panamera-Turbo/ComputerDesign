@@ -5,6 +5,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import Preface from '../views/Preface.vue'
 import Enroll from '../views/Enroll.vue'
+import _Main from 'element-plus/lib/el-main'
+import MainPage from '../views/MainPage.vue'
 
 const routes = [
   {
@@ -22,6 +24,11 @@ const routes = [
     name: 'Enroll',
     component: Enroll,
   },
+  {
+    path: '/mainpage',
+    name: 'MainPage',
+    component: MainPage,
+  }
 ]
 
 const router = createRouter({
