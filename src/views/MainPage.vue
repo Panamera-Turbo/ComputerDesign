@@ -2,7 +2,7 @@
 <template>
 <el-container style="border: 1px solid #eee">
   <!-- aside -->
-  <el-aside>
+  <!-- <el-aside>
     <el-menu :default-openeds="[]">
       <el-submenu index="1">
         <template #title><i class="el-icon-message"></i>导航一</template>
@@ -50,7 +50,7 @@
         </el-submenu>
       </el-submenu>
     </el-menu>
-  </el-aside>
+  </el-aside> -->
 
   <el-container>
     <!-- header -->
@@ -82,6 +82,29 @@
         </el-table-column>
       </el-table>
     </el-main> -->
+    
+    <!-- 选择卡片 -->
+    <!-- <button>导入成绩</button>
+    <button>查看预测</button>
+    <button>建议</button> -->
+    <el-row :gutter="40" align="center">
+      <el-col :span="6">
+        <div class="grid-content bg-purple" @click="importGrade">
+          <div class="son">导入成绩</div>
+        </div>
+      </el-col>
+      <el-col :span="6" class="middleCol">
+        <div class="grid-content bg-purple" @click="importGrade">
+          <div class="son">查看预测</div>
+        </div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple" @click="importGrade">
+          <div class="son">建议</div>
+        </div>
+      </el-col>
+    </el-row>
+    <!-- <button></button> -->
   </el-container>
 </el-container>
 </template>
@@ -124,6 +147,11 @@
         // ]
         
       };
+    },
+    methods:{
+      importGrade(){
+        this.$message.success({message: `用户: ${this.ValidateForm.username}，登陆成功！`})
+      }
     }
   };
 </script>
@@ -180,5 +208,52 @@
 
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
+  }
+  .el-row {
+    margin-bottom: 20px;
+    /* &:last-child {
+      margin-bottom: 0;
+    } */
+  }
+  .el-col {
+    border-radius: 8px;
+  }
+  .middleCol{
+    position: center;
+    top: 600px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    top: 600px;
+    background: #d3dce6;
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 15px;
+    min-height: 36px;
+    font-size: 30px;
+    color: rgba(65, 58, 58, 0.993);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+  .son {
+      text-align : center;
+
+      display: table-cell;
+      height: 200px;
+      /* width: 100%; */
+      width: 500px;
+      vertical-align: middle;
   }
 </style>
