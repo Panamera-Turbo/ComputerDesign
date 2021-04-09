@@ -57,6 +57,7 @@ export default {
             this.$refs[formName].validate((valid) => {
             if (valid) {
                 this.$message.success({message: `用户: ${this.ValidateForm.username}，登陆成功！`})
+                this.$router.push("./mainpage");    //0406陈麒至添加
             } else {
                 this.$message.error('此用户并不存在，请重新输入！')
                 return false;
