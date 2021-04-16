@@ -1,7 +1,5 @@
 
 <template>
-<el-container style="border: 1px solid #eee">
-  <el-container>
     <!-- header -->
     <el-header style="text-align: right; font-size: 18px">心理健康咨询中心
       <el-dropdown>
@@ -17,29 +15,39 @@
       <span>王小虎</span>
     </el-header>
     <div class="stupid"></div>
-
     <!-- 选择卡片 -->
     <!-- <main> -->
+      <el-carousel :interval="4000" type="card" height="200px">
       <el-row :gutter="90" type="flex" justify="center" align="middle"> 
-        <el-col :span="6">
-          <div class="grid-content bg-purple" @click="importGrade">
-            导入成绩
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="grid-content bg-purple" @click="checkFuture">
-            查看预测
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="grid-content bg-purple" @click="suppose">
-            建议          
-          </div>
-        </el-col>
+
+          <el-carousel-item :key="grade">
+
+              <div class="grid-content bg-purple" @click="importGrade">
+                <h2>导入成绩</h2>
+              </div>
+          </el-carousel-item>
+
+          <el-carousel-item :key="predict">
+              <div class="grid-content bg-purple" @click="checkFuture">
+                <h2>查看预测</h2>
+              </div>
+          </el-carousel-item>
+
+          <el-carousel-item :key="advice">
+              <div class="grid-content bg-purple" @click="suppose">
+                <h2>建议</h2>          
+              </div>
+          </el-carousel-item>
+
+          <el-carousel-item :key="hardware" id="test">
+              <div class="grid-content bg-purple" @click="changeHard">
+                <h2>添加硬件监测</h2>          
+              </div>
+          </el-carousel-item>
+        
       </el-row>
+    </el-carousel>
     <!-- </main> -->
-  </el-container>
-</el-container>
 </template>
 
 <script>
@@ -90,6 +98,9 @@
       },
       suppose(){
         this.$router.push('./suppose')
+      },
+      changeHard(){
+        this.$router.push('./hardware')
       }
     }
   };
@@ -161,6 +172,23 @@
   .row-bg {
     padding: 10px 0;
     background-color: #f9fafc;
+  }
+
+
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
   }
 
 </style>

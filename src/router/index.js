@@ -7,6 +7,7 @@ import Preface from '../views/Preface.vue'
 import Enroll from '../views/Enroll.vue'
 import _Main from 'element-plus/lib/el-main'
 import MainPage from '../views/MainPage.vue'
+import Hardware from '../views/Hardware.vue'
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: '/mainpage',
     name: 'MainPage',
     component: MainPage,
+  },
+  {
+    path: '/hardware',
+    name: 'Hardware',
+    component: Hardware,
   }
 ]
 
