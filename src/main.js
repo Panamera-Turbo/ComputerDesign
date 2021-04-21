@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import XLSX from 'xlsx'
 
 //添加Element UI内容
 import ElementPlus from 'element-plus';
@@ -11,4 +12,6 @@ const app = createApp(App)
 app.use(store)
 app.use(router)
 app.use(ElementPlus)
+app.use(XLSX)
 app.mount('#app')
+

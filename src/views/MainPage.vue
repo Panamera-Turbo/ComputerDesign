@@ -34,7 +34,7 @@
           </el-carousel-item>
 
           <el-carousel-item :key="advice">
-              <div class="grid-content bg-purple" @click="suppose">
+              <div class="grid-content bg-purple" @click="advice">
                 <h2>建议</h2>          
               </div>
           </el-carousel-item>
@@ -91,17 +91,18 @@
     },
     methods:{
       importGrade(){
-        this.$router.push('./importGrade')
+        this.$router.push('./import')
       },
       checkFuture(){
-        this.$router.push('./checkFuture')
+        this.$router.push('./predict')
       },
-      suppose(){
-        this.$router.push('./suppose')
+      advice(){
+        this.$router.push('./advice')
       },
       changeHard(){
         this.$router.push('./hardware')
-      }
+      },
+
     }
   };
 </script>
