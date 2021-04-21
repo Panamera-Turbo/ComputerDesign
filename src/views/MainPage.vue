@@ -12,7 +12,7 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <span>王小虎</span>
+      <span>user001</span>
     </el-header>
     <div class="stupid"></div>
     <!-- 选择卡片 -->
