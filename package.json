@@ -9,9 +9,11 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-plus": "^1.0.2-beta.36",
+    "file-saver": "^2.0.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -21,7 +23,8 @@
     "@vue/compiler-sfc": "^3.0.0",
     "babel-plugin-import": "^1.13.3",
     "less": "^3.0.4",
-    "less-loader": "^5.0.0"
+    "less-loader": "^5.0.0",
+    "script-loader": "^0.7.2"
   },
   "browserslist": [
     "> 1%",
